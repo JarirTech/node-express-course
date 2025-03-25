@@ -1,5 +1,6 @@
+//edited by Jarir
 const http = require("http");
-var StringDecoder = require("string_decoder").StringDecoder;
+const StringDecoder = require("string_decoder").StringDecoder;
 
 const getBody = (req, callback) => {
   const decode = new StringDecoder("utf-8");
@@ -59,6 +60,11 @@ const server = http.createServer((req, res) => {
     res.end(form());
   }
 });
+
+//3. We want to understand event emitters. First, modify prompter.js, to add the following lines above the listen statement.
+server.on("request", (req) => {  
+  console.log("event received: ", req.method, req.url);  
+});  
 
 server.listen(3000);
 console.log("The server is listening on port 3000.");

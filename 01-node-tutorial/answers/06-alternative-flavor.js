@@ -5,4 +5,8 @@ const cities = ["Boston", "New York", "Atlanta"];
 
 const person = {name: "AJ", age:"8"};
 
-console.log(cities, person);
+//console.log(cities, person);
+
+module.exports.cities = ["Boston", "New York"];
+
+module.exports.newPerson = person;
