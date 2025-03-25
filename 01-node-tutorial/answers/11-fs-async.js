@@ -2,7 +2,7 @@
 //This should load the fs module, and use the asynchronous function writeFile to write 3 lines to a file
 
 const { readFile, writeFile} = require('fs');
-console.log('Start')
+console.log('at start')
 
 readFile('./content/first.txt', 'utf8', (err, result) =>{
 
@@ -16,7 +16,7 @@ readFile('./content/first.txt', 'utf8', (err, result) =>{
     readFile('./content/second.txt', 'utf8', (err, result) =>{
 
     if (err){
-        console.log(err);
+        console.log("This error happened: ", err);
         return;
     }
     const second = result;
@@ -24,7 +24,7 @@ readFile('./content/first.txt', 'utf8', (err, result) =>{
 
         if (err)
             {
-            console.log(err);
+            console.log("This error happened: ", err);
             return;
            }
     console.log('done with this task.');
@@ -34,4 +34,4 @@ readFile('./content/first.txt', 'utf8', (err, result) =>{
     })
 })
 
-console.log('Starting next task.')
+console.log('at end')
