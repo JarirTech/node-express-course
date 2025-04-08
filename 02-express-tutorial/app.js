@@ -43,9 +43,9 @@ const peopleRouter = require('./routes/people.js')
 
 app.use("/api/v1/people", peopleRouter)
 
-/*
 
-week3
+
+//week3
 
 
 //7:
@@ -59,11 +59,11 @@ app.get('/api/v1/products', (req, res)=>
    res.json(products)
 })
 
-//6:
-//app.all('*', (req, res)=>{
- //   res.status(404).send('<h1> Resource not found</h1>')
+/*6:
+app.all('*', (req, res)=>{
+   res.status(404).send('<h1> Resource not found</h1>')
 
-//});
+});*/
 
 
 app.get('/api/v1/products/:productId', (req, res)=>{
@@ -107,7 +107,7 @@ app.get('/api/v1/query',  (req, res) => {
 
 
 
-*/
+
 app.listen(3000, ()=>{
     console.log("Listening on port 3000...")
 
