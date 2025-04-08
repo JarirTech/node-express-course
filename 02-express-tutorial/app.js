@@ -59,7 +59,7 @@ app.get('/api/v1/products', (req, res)=>
    res.json(products)
 })
 
-/*6:
+/* question 6
 app.all('*', (req, res)=>{
    res.status(404).send('<h1> Resource not found</h1>')
 

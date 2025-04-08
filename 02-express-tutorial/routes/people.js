@@ -16,7 +16,7 @@ router.post('/', addPerson)
 router.put('/:id', updatePerson)
 
 
-// delete
+// delete a person
 
 router.delete('/:id', deletePerson)
     
