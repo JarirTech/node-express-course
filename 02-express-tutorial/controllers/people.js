@@ -1,4 +1,4 @@
-
+// controllers
 let {people} = require('../data.js')
 
 const getPeople = (req, res)=>{
