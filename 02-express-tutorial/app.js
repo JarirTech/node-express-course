@@ -1,3 +1,4 @@
+// Introduction to Express Assignment//console.log('Express Tutorial')
 
 //  branch week3 & week4
 const express = require("express");
@@ -66,6 +67,7 @@ app.all('*', (req, res)=>{
 });*/
 
 
+
 app.get('/api/v1/products/:productId', (req, res)=>{
     const productId = parseInt(req.params.productId)
     const reqProduct = products.find(product=> product.id ===productId)
@@ -81,31 +83,47 @@ return res.json(reqProduct)
 
 
 //2: query
-app.get('/api/v1/query',  (req, res) => {
-  console.log(req.query)
-  const { search, limit } = req.query
-  let filteredProducts = [...products]
- //Filter by search keyword
- if (search) {
-    filteredProducts = filteredProducts.filter((product) => {
-      return product.name.startsWith(search)
-    })
+app.get('/api/v1/query', (req, res) => {
+  const { search, limit } = req.query;
+  let filteredProducts = [...products];
+
+  if (search) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.startsWith(search)
+    );
   }
- if (limit) {
-    filteredProducts = filteredProducts.slice(0, Number(limit))
+
+  if (limit) {
+    filteredProducts = filteredProducts.slice(0, Number(limit));
   }
- if (filteredProducts.length < 1) {
-     res.status(200).send('no products matched your search');
-    return res.status(200).json({ sucess: true, data: [] })
+
+  if (filteredProducts.length < 1) {
+    return res.status(200).json({ success: true, data: [] });
   }
-  res.status(200).json(filteredProducts)
-})
 
+  res.status(200).json({ success: true, data: filteredProducts });
+});
 
+app.get('/api/v1/query', (req, res) => {
+  const { search, limit } = req.query;
+  let filteredProducts = [...products];
 
+  if (search) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.startsWith(search)
+    );
+  }
 
+  if (limit) {
+    filteredProducts = filteredProducts.slice(0, Number(limit));
+  }
 
+  if (filteredProducts.length < 1) {
+    return res.status(200).json({ success: true, data: [] });
+  }
 
+  res.status(200).json({ success: true, data: filteredProducts });
+});
 
 
 app.listen(3000, ()=>{
